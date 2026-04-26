@@ -414,6 +414,95 @@ export default function About() {
             </div>
           </div>
 
+          {/* Pola Chemical — IFSCC Story */}
+          <div
+            className="reveal mb-10 p-8 md:p-12 rounded-sm"
+            style={{ background: "oklch(0.97 0.005 255)", border: "1px solid oklch(0.88 0.01 255)" }}
+          >
+            <p
+              className="text-xs tracking-[0.15em] uppercase mb-2"
+              style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}
+            >
+              1994 – Retirement · Pola Chemical Industries, Japan
+            </p>
+            <h3
+              className="text-2xl md:text-3xl mb-5"
+              style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}
+            >
+              Nine IFSCC Award Wins — A Story of Mentorship
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="md:col-span-2 space-y-4">
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
+                >
+                  Beginning in 1994, Dr. Lin formed a remarkable collaboration with the research team at <strong>Pola Chemical Industries</strong>, one of Japan's most respected cosmetic science companies. Over the years that followed, Pola's scientists won <strong>nine IFSCC awards</strong> — and every single one came during the years Dr. Lin was working with them.
+                </p>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
+                >
+                  His contribution went far beyond scientific guidance. He helped the team craft abstracts that would be selected for presentation at IFSCC World Congresses, refined their research papers, and then coached the scientists on how to deliver compelling presentations in English — recording himself and having them mimic his delivery to build both language fluency and presentation confidence.
+                </p>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
+                >
+                  This partnership was made possible by a remarkable biographical fact: Dr. Lin grew up in Taiwan during the Japanese occupation of World War II, where Japanese was the language of instruction. He became fully fluent — a skill that, decades later, allowed him to bridge the scientific and cultural gap between American cosmetic science and Japan's leading research institutions.
+                </p>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
+                >
+                  When Dr. Lin retired, Pola did not win again. The nine consecutive victories stand as a quiet but eloquent measure of how much one scientist's generosity, expertise, and mentorship can matter.
+                </p>
+              </div>
+              <div className="flex flex-col gap-4">
+                <div
+                  className="p-5 rounded-sm text-center"
+                  style={{ background: "oklch(0.13 0.05 255)", border: "1px solid oklch(0.25 0.05 255)" }}
+                >
+                  <div
+                    className="text-5xl font-bold mb-1"
+                    style={{ fontFamily: "var(--font-display)", color: "oklch(0.72 0.12 75)" }}
+                  >
+                    9
+                  </div>
+                  <div
+                    className="text-xs tracking-widest uppercase"
+                    style={{ fontFamily: "var(--font-mono)", color: "oklch(0.65 0.01 255)" }}
+                  >
+                    IFSCC Award Wins
+                  </div>
+                  <div
+                    className="text-xs mt-1"
+                    style={{ fontFamily: "var(--font-body)", color: "oklch(0.55 0.01 255)" }}
+                  >
+                    Pola Chemical Industries
+                  </div>
+                </div>
+                <div
+                  className="p-5 rounded-sm"
+                  style={{ background: "oklch(0.97 0.005 255)", border: "1px solid oklch(0.88 0.01 255)" }}
+                >
+                  <p
+                    className="text-xs tracking-widest uppercase mb-2"
+                    style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}
+                  >
+                    The Language Bridge
+                  </p>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
+                  >
+                    Dr. Lin learned Japanese under Japanese occupation of Taiwan during World War II — a circumstance of history that, four decades later, made him uniquely able to mentor Japan's finest cosmetic scientists on the world stage.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Other honors */}
           <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
