@@ -5,6 +5,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 
+const PORTRAIT_IMG = "/manus-storage/dr_lin_portrait_ab57ba64.jpeg";
 const LAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663502700298/bg5X4pi7SvB6SpNSveBFo8/lab_equipment_vintage-VentmgFEmGtbqLsU43U8en.webp";
 
 function useReveal() {
@@ -98,30 +99,10 @@ export default function About() {
               >
                 <div className="relative aspect-[3/4] bg-[oklch(0.93_0.005_255)]">
                   <img
-                    src={LAB_IMG}
-                    alt="Placeholder — archival photo of Dr. Lin"
-                    className="w-full h-full object-cover opacity-60"
+                    src={PORTRAIT_IMG}
+                    alt="Dr. T. Joseph Lin, Ph.D."
+                    className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                    <div
-                      className="w-16 h-16 rounded-full mb-4 flex items-center justify-center"
-                      style={{ background: "var(--color-cobalt)" }}
-                    >
-                      <span className="text-white text-2xl" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}>L</span>
-                    </div>
-                    <p
-                      className="text-sm font-medium"
-                      style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
-                    >
-                      Archival photo
-                    </p>
-                    <p
-                      className="text-xs mt-1"
-                      style={{ fontFamily: "var(--font-mono)", color: "var(--color-slate-cool)" }}
-                    >
-                      Coming soon
-                    </p>
-                  </div>
                 </div>
                 <div className="p-5 bg-white">
                   <h3

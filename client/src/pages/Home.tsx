@@ -8,6 +8,7 @@ import { Link } from "wouter";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663502700298/bg5X4pi7SvB6SpNSveBFo8/hero_emulsion_lab-KeqhoytoZPE3TN4JK63F3q.webp";
 const LAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663502700298/bg5X4pi7SvB6SpNSveBFo8/lab_equipment_vintage-VentmgFEmGtbqLsU43U8en.webp";
+const PORTRAIT_IMG = "/manus-storage/dr_lin_portrait_ab57ba64.jpeg";
 const MOLECULE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663502700298/bg5X4pi7SvB6SpNSveBFo8/molecular_diagram_abstract-Hux9yNrRWdDv2qHL3frMeW.png";
 
 function useReveal() {
@@ -148,9 +149,9 @@ export default function Home() {
                 style={{ border: "1px solid var(--border)" }}
               >
                 <img
-                  src={LAB_IMG}
-                  alt="Laboratory equipment representing Dr. Lin's research"
-                  className="w-full h-full object-cover"
+                  src={PORTRAIT_IMG}
+                  alt="Dr. T. Joseph Lin, Ph.D."
+                  className="w-full h-full object-cover object-top"
                 />
                 <div
                   className="absolute bottom-0 left-0 right-0 p-4"
@@ -160,7 +161,7 @@ export default function Home() {
                     className="text-white/80 text-xs"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
-                    Photo placeholder — archival photos coming soon
+                    T. Joseph Lin, Ph.D. — Head of R&D, Max Factor
                   </p>
                 </div>
               </div>
