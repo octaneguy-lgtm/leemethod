@@ -53,6 +53,7 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -60,15 +61,36 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in all required fields.");
       return;
     }
-    // In a static site, we show a confirmation. A backend or Formspree can be wired up later.
-    setSubmitted(true);
-    toast.success("Your message has been received. We will be in touch shortly.");
+    setSending(true);
+    try {
+      const res = await fetch("https://formspree.io/f/xpqknenk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        toast.success("Your message has been received. We will be in touch shortly.");
+      } else {
+        const data = await res.json();
+        toast.error(data?.errors?.[0]?.message || "Something went wrong. Please try again.");
+      }
+    } catch {
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -258,10 +280,11 @@ export default function Contact() {
                     </p>
                     <button
                       type="submit"
-                      className="px-8 py-3 text-sm font-medium rounded text-white transition-all hover:opacity-90 active:scale-95"
+                      disabled={sending}
+                      className="px-8 py-3 text-sm font-medium rounded text-white transition-all hover:opacity-90 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
                       style={{ background: "var(--color-cobalt)", fontFamily: "var(--font-body)" }}
                     >
-                      Send Message
+                      {sending ? "Sending…" : "Send Message"}
                     </button>
                   </div>
                 </form>
