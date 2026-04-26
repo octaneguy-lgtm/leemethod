@@ -26,9 +26,9 @@ function useReveal() {
 
 const timeline = [
   {
-    year: "1950s–60s",
-    title: "Academic Foundation",
-    body: "Dr. Lin earned his doctorate in chemical engineering and developed a deep expertise in colloid and surface chemistry — the scientific bedrock of emulsion science.",
+    year: "1960s",
+    title: "First Published Paper — de Navarre",
+    body: "Contributed the chapter 'Emulsions' to Maison G. de Navarre's landmark reference series, The Chemistry and Manufacture of Cosmetics. De Navarre was the founder of the Society of Cosmetic Chemists, and being invited to write for his definitive text was a mark of exceptional scientific standing. This was Dr. Lin's first published technical paper.",
   },
   {
     year: "1960s–70s",

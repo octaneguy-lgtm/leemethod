@@ -8,7 +8,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Science from "./pages/Science";
 import Publication from "./pages/Publication";
-import Contact from "./pages/Contact";
+import Contact from './pages/Contact';
+import Papers from './pages/Papers';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/science" component={Science} />
         <Route path="/publication" component={Publication} />
         <Route path="/contact" component={Contact} />
+        <Route path="/papers" component={Papers} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

@@ -42,6 +42,7 @@ export default function Footer() {
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Dr. Lin" },
                 { href: "/science", label: "The Science" },
+                { href: "/papers", label: "Papers" },
                 { href: "/publication", label: "Publication" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
