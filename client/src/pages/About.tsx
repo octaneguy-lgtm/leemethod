@@ -7,6 +7,7 @@ import { Link } from "wouter";
 
 const PORTRAIT_IMG = "/manus-storage/dr_lin_portrait_ab57ba64.jpeg";
 const AWARDS_PHOTO = "/manus-storage/dr_lin_awards_photo_bab5dcf4.jpeg";
+const DENAVARRE_PHOTO = "/manus-storage/dr_lin_denavarre_award_2001_1d9c0700.jpeg";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -361,22 +362,21 @@ export default function About() {
             className="reveal mb-10 p-8 md:p-12 rounded-sm"
             style={{ background: "oklch(0.13 0.05 255)", border: "1px solid oklch(0.25 0.05 255)" }}
           >
-            <div className="flex flex-col md:flex-row md:items-start gap-8">
-              <div className="shrink-0 flex flex-col items-center gap-2">
-                <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center"
-                  style={{ background: "oklch(0.72 0.12 75 / 0.15)", border: "2px solid oklch(0.72 0.12 75 / 0.5)" }}
-                >
-                  <span style={{ color: "oklch(0.72 0.12 75)", fontSize: "2rem" }}>🏅</span>
+            <div className="flex flex-col lg:flex-row gap-8">
+              {/* Photo */}
+              <div className="shrink-0 lg:w-64">
+                <div className="rounded-sm overflow-hidden" style={{ border: "2px solid oklch(0.72 0.12 75 / 0.4)" }}>
+                  <img
+                    src={DENAVARRE_PHOTO}
+                    alt="Dr. T. Joseph Lin holding the Maison G. de Navarre Medal plaque at the SCC awards ceremony, December 2001, with his wife Cathy"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
-                <span
-                  className="text-xs tracking-widest uppercase"
-                  style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}
-                >
-                  2001
-                </span>
+                <p className="text-xs mt-2 text-center" style={{ fontFamily: "var(--font-mono)", color: "oklch(0.55 0.01 255)" }}>
+                  Dr. Lin with his wife Cathy — SCC Awards Ceremony, December 2001
+                </p>
               </div>
-              <div>
+              <div className="flex-1">
                 <p
                   className="text-xs tracking-[0.15em] uppercase mb-2"
                   style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}
