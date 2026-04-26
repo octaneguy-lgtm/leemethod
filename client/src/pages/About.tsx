@@ -333,7 +333,7 @@ export default function About() {
                   className="text-sm leading-relaxed"
                   style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
                 >
-                  Dr. Lin at home in Pacific Palisades, CA, standing in front of his research poster <em>"Low-Energy Emulsification (LEE) VIII: Reducing Carbon Footprint &amp; Improving Product Quality."</em> Visible on the wall behind him are two of his framed awards — including an <strong>IFSCC Honorary Mention</strong> for his paper on Low-Energy Emulsification.
+                  Dr. Lin at home in Pacific Palisades, CA, with Jane Chiang and Carolyn Chiang, standing in front of his research poster <em>"Low-Energy Emulsification (LEE) VIII: Reducing Carbon Footprint &amp; Improving Product Quality."</em> Visible on the wall behind him are two of his framed awards — including an <strong>IFSCC Honorary Mention</strong> for his paper on Low-Energy Emulsification.
                 </p>
                 <p
                   className="text-sm leading-relaxed"
