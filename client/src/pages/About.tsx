@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 
 const PORTRAIT_IMG = "/manus-storage/dr_lin_portrait_ab57ba64.jpeg";
-const LAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663502700298/bg5X4pi7SvB6SpNSveBFo8/lab_equipment_vintage-VentmgFEmGtbqLsU43U8en.webp";
+const AWARDS_PHOTO = "/manus-storage/dr_lin_awards_photo_bab5dcf4.jpeg";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -311,6 +311,49 @@ export default function About() {
             >
               Awards & <em>Honors</em>
             </h2>
+          </div>
+
+          {/* Awards photo */}
+          <div className="reveal mb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-7">
+                <div
+                  className="rounded-sm overflow-hidden shadow-lg"
+                  style={{ border: "1px solid var(--border)" }}
+                >
+                  <img
+                    src={AWARDS_PHOTO}
+                    alt="Dr. T. Joseph Lin standing in front of his LEE VIII research poster with two framed awards on the wall"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+              <div className="lg:col-span-5 flex flex-col justify-center gap-5">
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
+                >
+                  Dr. Lin at home in Pacific Palisades, CA, standing in front of his research poster <em>"Low-Energy Emulsification (LEE) VIII: Reducing Carbon Footprint &amp; Improving Product Quality."</em> Visible on the wall behind him are two of his framed awards — including an <strong>IFSCC Honorary Mention</strong> for his paper on Low-Energy Emulsification.
+                </p>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.45 0.02 255)" }}
+                >
+                  Sadly, most of his physical awards and plaques were lost in a fire. This photograph is one of the few surviving records of his recognition wall.
+                </p>
+                <div
+                  className="p-4 rounded-sm"
+                  style={{ background: "oklch(0.97 0.003 255)", border: "1px solid var(--border)" }}
+                >
+                  <p
+                    className="text-xs"
+                    style={{ fontFamily: "var(--font-mono)", color: "var(--color-slate-cool)" }}
+                  >
+                    Photo taken at his Pacific Palisades home before the 2024 fire.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Featured Award — de Navarre Medal */}
