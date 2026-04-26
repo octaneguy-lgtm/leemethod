@@ -67,8 +67,18 @@ const timeline = [
   },
   {
     year: "2001",
+    title: "Maison G. de Navarre Medal Award",
+    body: "Received the Society of Cosmetic Chemists' highest honor — the Maison G. de Navarre Medal Award — in recognition of outstanding technical contributions to the cosmetic industry. The award is named after the very man under whom Dr. Lin published his first scientific paper, making the honor a profound full-circle recognition of a lifetime of work.",
+  },
+  {
+    year: "2001",
     title: "'Beyond Energy Conservation'",
     body: "Published 'Low-Energy Emulsification: Beyond Energy Conservation' in Cosmetics & Toiletries magazine, demonstrating that LEE also dramatically improves manufacturing productivity and product quality.",
+  },
+  {
+    year: "2018",
+    title: "IPCE 2018 Keynote Presentation",
+    body: "Delivered one of his final public lectures at IPCE 2018, presenting 'Low Energy Emulsification — The Z-Point Concept.' The talk synthesized a lifetime of LEE research into a unified philosophy of 'Less Is More,' drawing on Confucian and Taoist philosophy alongside rigorous chemical engineering principles.",
   },
 ];
 
@@ -290,7 +300,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ─── AWARDS PLACEHOLDER ─── */}
+      {/* ─── AWARDS ─── */}
       <section className="py-24 bg-white" ref={s3}>
         <div className="container">
           <div className="reveal mb-12">
@@ -303,34 +313,118 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="p-8 rounded-sm flex flex-col items-center text-center gap-4"
-                style={{ border: "1px dashed var(--border)", background: "oklch(0.98 0.002 255)" }}
-              >
+          {/* Featured Award — de Navarre Medal */}
+          <div
+            className="reveal mb-10 p-8 md:p-12 rounded-sm"
+            style={{ background: "oklch(0.13 0.05 255)", border: "1px solid oklch(0.25 0.05 255)" }}
+          >
+            <div className="flex flex-col md:flex-row md:items-start gap-8">
+              <div className="shrink-0 flex flex-col items-center gap-2">
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center"
-                  style={{ background: "oklch(0.94 0.01 255)" }}
+                  className="w-20 h-20 rounded-full flex items-center justify-center"
+                  style={{ background: "oklch(0.72 0.12 75 / 0.15)", border: "2px solid oklch(0.72 0.12 75 / 0.5)" }}
                 >
-                  <span style={{ color: "var(--color-cobalt)", fontFamily: "var(--font-display)", fontSize: "1.5rem", fontStyle: "italic" }}>★</span>
+                  <span style={{ color: "oklch(0.72 0.12 75)", fontSize: "2rem" }}>🏅</span>
                 </div>
-                <p
-                  className="text-sm"
-                  style={{ fontFamily: "var(--font-body)", color: "var(--color-slate-cool)" }}
+                <span
+                  className="text-xs tracking-widest uppercase"
+                  style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}
                 >
-                  Award / honor placeholder — archival details coming soon
+                  2001
+                </span>
+              </div>
+              <div>
+                <p
+                  className="text-xs tracking-[0.15em] uppercase mb-2"
+                  style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}
+                >
+                  Society of Cosmetic Chemists — Highest Honor
+                </p>
+                <h3
+                  className="text-2xl md:text-3xl text-white mb-4"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Maison G. de Navarre Medal Award
+                </h3>
+                <p
+                  className="text-sm leading-relaxed mb-4"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.75 0.01 255)" }}
+                >
+                  The Society of Cosmetic Chemists' most prestigious recognition, awarded for <em style={{ color: "white" }}>"accomplishments in activity supporting the best interests of the cosmetic industry through technical contributions — patents, publications, and technical presentations."</em>
+                </p>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.75 0.01 255)" }}
+                >
+                  The award carries special significance for Dr. Lin: it is named after Maison G. de Navarre — the founder of the SCC and the editor under whom Dr. Lin published his very first scientific paper in 1962. Receiving the Society's highest honor in de Navarre's name represents a full-circle recognition of a career that began in de Navarre's own laboratory.
+                </p>
+                <a
+                  href="https://www.scconline.org/About/Awards-and-Scholarships/Maison-G-deNavarre-Medal-Award"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-5 text-xs"
+                  style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}
+                >
+                  View official SCC award page →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Other honors */}
+          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                year: "1976–2018",
+                org: "Society of Cosmetic Chemists (SCC)",
+                title: "Featured Speaker & Contributor",
+                body: "Presented at SCC annual meetings and symposia for over four decades, including the landmark 1976 introduction of LEE and numerous subsequent presentations on emulsion science.",
+              },
+              {
+                year: "1976–2018",
+                org: "IFSCC — International Federation of Societies of Cosmetic Chemists",
+                title: "International Conference Presenter",
+                body: "Presented LEE research at multiple IFSCC World Congresses, bringing Low Energy Emulsification to an international audience of cosmetic scientists and manufacturers.",
+              },
+              {
+                year: "2005–2009",
+                org: "Cosmetics & Toiletries China (C&T China)",
+                title: "Regular Contributing Columnist",
+                body: "Authored a series of columns for C&T China on cosmetic science, value, and innovation — writing in Chinese for the rapidly growing Chinese cosmetics industry.",
+              },
+              {
+                year: "1959–1974",
+                org: "American Institute of Chemical Engineers · American Chemical Society · Sigma Xi · Phi Lambda Upsilon",
+                title: "Professional Memberships",
+                body: "Member of the leading professional and honor societies in chemical engineering and chemistry throughout his academic and early industrial career.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="p-6 rounded-sm bg-white"
+                style={{ border: "1px solid var(--border)" }}
+              >
+                <p
+                  className="text-xs tracking-widest uppercase mb-1"
+                  style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}
+                >
+                  {item.year} · {item.org}
+                </p>
+                <h4
+                  className="text-lg mb-2"
+                  style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}
+                >
+                  {item.title}
+                </h4>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-body)", color: "oklch(0.45 0.02 255)" }}
+                >
+                  {item.body}
                 </p>
               </div>
             ))}
           </div>
-          <p
-            className="text-xs mt-6 text-center"
-            style={{ fontFamily: "var(--font-mono)", color: "var(--color-slate-cool)" }}
-          >
-            Awards and honors will be populated with archival records and photos.
-          </p>
         </div>
       </section>
     </div>
