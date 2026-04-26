@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 
-const LAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663502700298/bg5X4pi7SvB6SpNSveBFo8/lab_equipment_vintage-VentmgFEmGtbqLsU43U8en.webp";
+const BOOK_COVER = "/manus-storage/book_cover_9ebe638c.png";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -56,62 +56,45 @@ export default function Publication() {
       <section className="py-24 md:py-32 bg-white" ref={s1}>
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Book cover placeholder */}
+            {/* Book cover */}
             <div className="lg:col-span-5 reveal">
               <div
-                className="relative rounded-sm overflow-hidden shadow-2xl aspect-[3/4]"
+                className="relative rounded-sm overflow-hidden shadow-2xl"
                 style={{ border: "1px solid var(--border)" }}
               >
                 <img
-                  src={LAB_IMG}
-                  alt="Publication placeholder"
-                  className="w-full h-full object-cover opacity-40"
+                  src={BOOK_COVER}
+                  alt="Manufacturing Cosmetic Emulsions: Pragmatic Troubleshooting and Energy Conservation — T. Joseph Lin, PhD"
+                  className="w-full h-auto object-contain"
                 />
-                <div
-                  className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
-                  style={{ background: "oklch(0.13 0.05 255 / 0.75)" }}
-                >
-                  <div
-                    className="w-1 h-16 mb-6"
-                    style={{ background: "oklch(0.72 0.12 75)" }}
-                  />
-                  <p
-                    className="text-xs tracking-[0.2em] uppercase mb-4"
-                    style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}
-                  >
-                    Final Publication
-                  </p>
-                  <h2
-                    className="text-3xl text-white mb-4 leading-tight"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    Low Energy
-                    <br />
-                    <em>Emulsification</em>
-                  </h2>
-                  <p
-                    className="text-sm text-white/70 mb-6"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    T. Joseph Lin, Ph.D.
-                  </p>
-                  <div
-                    className="w-8 h-0.5"
-                    style={{ background: "oklch(0.72 0.12 75)" }}
-                  />
-                  <p
-                    className="text-xs mt-4 text-white/50"
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    Cover image coming soon
-                  </p>
-                </div>
+              </div>
+
+              {/* Book metadata */}
+              <div
+                className="mt-4 p-5 rounded-sm"
+                style={{ background: "oklch(0.97 0.003 255)", border: "1px solid var(--border)" }}
+              >
+                <dl className="grid grid-cols-2 gap-x-4 gap-y-3">
+                  {[
+                    ["Publisher", "Allured Books"],
+                    ["Published", "July 1, 2009"],
+                    ["Edition", "First Edition"],
+                    ["Pages", "187"],
+                    ["ISBN-13", "978-1932633610"],
+                    ["Language", "English"],
+                  ].map(([label, value]) => (
+                    <div key={label}>
+                      <dt className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}>{label}</dt>
+                      <dd className="text-sm font-medium" style={{ fontFamily: "var(--font-body)", color: "oklch(0.2 0.02 255)" }}>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
 
               {/* Limited edition badge */}
               <div
-                className="mt-4 p-4 rounded-sm flex items-center gap-3"
-                style={{ background: "oklch(0.97 0.003 255)", border: "1px solid var(--border)" }}
+                className="mt-3 p-4 rounded-sm flex items-center gap-3"
+                style={{ background: "oklch(0.97 0.003 255)", border: "1px solid oklch(0.72 0.12 75 / 0.4)" }}
               >
                 <div
                   className="w-2 h-2 rounded-full shrink-0"
@@ -130,13 +113,14 @@ export default function Publication() {
             <div className="lg:col-span-7 reveal" style={{ transitionDelay: "0.15s" }}>
               <p className="section-label mb-4">About This Publication</p>
               <h2
-                className="text-4xl md:text-5xl mb-6"
+                className="text-4xl md:text-5xl mb-2"
                 style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}
               >
-                A Lifetime of Science,
-                <br />
-                <em>Preserved in Print</em>
+                Manufacturing Cosmetic Emulsions
               </h2>
+              <p className="text-lg mb-6" style={{ fontFamily: "var(--font-body)", color: "oklch(0.45 0.02 255)" }}>
+                Pragmatic Troubleshooting and Energy Conservation
+              </p>
 
               <div className="cobalt-rule mb-8">
                 <p
@@ -203,25 +187,28 @@ export default function Publication() {
 
               {/* Order CTA */}
               <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://a.co/d/0cmpWq1t"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 text-sm font-medium rounded text-white transition-all hover:opacity-90 active:scale-95 inline-flex items-center gap-2"
+                  style={{ background: "#FF9900", fontFamily: "var(--font-body)", color: "#111" }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.699-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.074-1.052-.872-1.238-1.276-1.814-2.106-1.734 1.767-2.962 2.297-5.209 2.297-2.66 0-4.731-1.641-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.095v-.41c0-.753.06-1.642-.384-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.061-.333c-.259-.056-.548-.266-.472-.66C5.57 2.357 8.533 1.5 11.19 1.5c1.363 0 3.143.363 4.218 1.395 1.363 1.271 1.232 2.965 1.232 4.811v4.355c0 1.31.543 1.885 1.054 2.592.181.253.221.557-.009.745l-2.541 2.397z"/></svg>
+                  Buy on Amazon
+                </a>
                 <Link href="/contact">
                   <button
-                    className="px-8 py-4 text-sm font-medium rounded text-white transition-all hover:opacity-90 active:scale-95"
-                    style={{ background: "var(--color-cobalt)", fontFamily: "var(--font-body)" }}
+                    className="px-8 py-4 text-sm font-medium rounded border transition-all hover:bg-[oklch(0.97_0.003_255)] active:scale-95"
+                    style={{
+                      border: "1px solid var(--border)",
+                      fontFamily: "var(--font-body)",
+                      color: "oklch(0.35 0.02 255)",
+                    }}
                   >
-                    Order a Copy
+                    Contact Us Directly
                   </button>
                 </Link>
-                <button
-                  className="px-8 py-4 text-sm font-medium rounded border transition-all hover:bg-[oklch(0.97_0.003_255)] active:scale-95"
-                  style={{
-                    border: "1px solid var(--border)",
-                    fontFamily: "var(--font-body)",
-                    color: "oklch(0.35 0.02 255)",
-                  }}
-                  onClick={() => toast.info("Pricing details available upon request via the contact form.")}
-                >
-                  Inquire About Pricing
-                </button>
               </div>
             </div>
           </div>
