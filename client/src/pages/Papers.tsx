@@ -21,6 +21,27 @@ function useReveal() {
   return ref;
 }
 
+// Dissertation images
+const DISSERTATION_PAGES = [
+  "/manus-storage/IMG_1202_90ab518a.jpeg",
+  "/manus-storage/IMG_1203_b70d94d6.jpeg",
+  "/manus-storage/IMG_1204_24134069.jpeg",
+  "/manus-storage/IMG_1207_61d7c8f8.jpeg",
+  "/manus-storage/IMG_1208_78a6ca9b.jpeg",
+  "/manus-storage/IMG_1210_b78617b0.jpeg",
+  "/manus-storage/IMG_1211_306f2834.jpeg",
+];
+
+const DISSERTATION_LABELS = [
+  "Cover",
+  "Dedication",
+  "Title Page & Signatures",
+  "Autobiographical Statement",
+  "Abstract (p.1)",
+  "Abstract (p.2)",
+  "Acknowledgment",
+];
+
 // All 40 uploaded pages in order
 const PAGES = [
   "/manus-storage/IMG_1165_388eaeeb.jpeg",
@@ -65,10 +86,10 @@ const PAGES = [
   "/manus-storage/IMG_3863_01_491b33ad.jpeg",
 ];
 
-function PaperViewer({ onClose }: { onClose: () => void }) {
+function PaperViewer({ pages, title, onClose }: { pages: string[]; title: string; onClose: () => void }) {
   const [page, setPage] = useState(0);
   const [zoom, setZoom] = useState(1);
-  const total = PAGES.length;
+  const total = pages.length;
 
   const prev = useCallback(() => setPage((p) => Math.max(0, p - 1)), []);
   const next = useCallback(() => setPage((p) => Math.min(total - 1, p + 1)), [total]);
@@ -98,7 +119,7 @@ function PaperViewer({ onClose }: { onClose: () => void }) {
             className="text-white text-sm font-medium"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Emulsions — Chapter for Maison G. de Navarre
+            {title}
           </p>
           <p
             className="text-white/50 text-xs"
@@ -143,7 +164,7 @@ function PaperViewer({ onClose }: { onClose: () => void }) {
       <div className="flex-1 overflow-auto flex items-start justify-center p-4 md:p-8">
         <img
           key={page}
-          src={PAGES[page]}
+          src={pages[page]}
           alt={`Page ${page + 1}`}
           style={{
             maxWidth: `${zoom * 100}%`,
@@ -163,7 +184,7 @@ function PaperViewer({ onClose }: { onClose: () => void }) {
       >
         {/* Thumbnail strip */}
         <div className="flex gap-1 overflow-x-auto max-w-[60vw] pb-1">
-          {PAGES.map((src, i) => (
+          {pages.map((src, i) => (
             <button
               key={i}
               onClick={() => setPage(i)}
@@ -211,19 +232,33 @@ function PaperViewer({ onClose }: { onClose: () => void }) {
 }
 
 export default function Papers() {
-  const [viewerOpen, setViewerOpen] = useState(false);
+  const [viewerOpen, setViewerOpen] = useState<"paper" | "dissertation" | null>(null);
   const [startPage, setStartPage] = useState(0);
   const s1 = useReveal();
   const s2 = useReveal();
+  const s3 = useReveal();
 
-  const openViewer = (page = 0) => {
+  const openViewer = (type: "paper" | "dissertation", page = 0) => {
     setStartPage(page);
-    setViewerOpen(true);
+    setViewerOpen(type);
   };
 
   return (
     <div className="min-h-screen pt-20">
-      {viewerOpen && <PaperViewer onClose={() => setViewerOpen(false)} />}
+      {viewerOpen === "paper" && (
+        <PaperViewer
+          pages={PAGES}
+          title="Emulsions — Chapter for Maison G. de Navarre"
+          onClose={() => setViewerOpen(null)}
+        />
+      )}
+      {viewerOpen === "dissertation" && (
+        <PaperViewer
+          pages={DISSERTATION_PAGES}
+          title="Gas Bubble Entrainment by Plunging Laminar Liquid Jets — Ph.D. Dissertation"
+          onClose={() => setViewerOpen(null)}
+        />
+      )}
 
       {/* ─── PAGE HEADER ─── */}
       <section
@@ -259,9 +294,9 @@ export default function Papers() {
             <div className="lg:col-span-5 reveal">
               {/* Cover preview — first page */}
               <div
-                className="relative rounded-sm overflow-hidden shadow-xl mb-6 cursor-pointer group"
-                style={{ border: "1px solid var(--border)" }}
-                onClick={() => openViewer(0)}
+                  className="relative rounded-sm overflow-hidden shadow-xl mb-6 cursor-pointer group"
+                  style={{ border: "1px solid var(--border)" }}
+                  onClick={() => openViewer("paper", 0)}
               >
                 <img
                   src={PAGES[0]}
@@ -371,7 +406,7 @@ export default function Papers() {
               <button
                 className="flex items-center gap-2 px-6 py-3 text-sm font-medium rounded text-white transition-all hover:opacity-90 active:scale-95"
                 style={{ background: "var(--color-cobalt)", fontFamily: "var(--font-body)" }}
-                onClick={() => openViewer(0)}
+                onClick={() => openViewer("paper", 0)}
               >
                 <BookOpen size={16} />
                 Read the Full Paper
@@ -410,7 +445,7 @@ export default function Papers() {
                 key={i}
                 className="group relative rounded-sm overflow-hidden shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
                 style={{ border: "1px solid var(--border)", aspectRatio: "3/4" }}
-                onClick={() => openViewer(i)}
+                onClick={() => openViewer("paper", i)}
                 title={`Open page ${i + 1}`}
               >
                 <img
@@ -435,6 +470,129 @@ export default function Papers() {
                 </div>
               </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── DISSERTATION ─── */}
+      <section className="py-24 md:py-32 bg-white" ref={s3}>
+        <div className="container">
+          <div className="reveal mb-4">
+            <p className="section-label mb-4">02 — Ph.D. Dissertation</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Left: cover image */}
+            <div className="lg:col-span-5 reveal">
+              <div
+                className="relative rounded-sm overflow-hidden shadow-xl mb-6 cursor-pointer group"
+                style={{ border: "1px solid var(--border)" }}
+                onClick={() => openViewer("dissertation", 0)}
+              >
+                <img
+                  src={DISSERTATION_PAGES[0]}
+                  alt="Dissertation cover"
+                  className="w-full object-cover"
+                  style={{ maxHeight: 420, objectPosition: "top" }}
+                />
+                <div
+                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ background: "oklch(0.13 0.05 255 / 0.7)" }}
+                >
+                  <div className="flex flex-col items-center gap-2 text-white">
+                    <BookOpen size={32} />
+                    <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>Open Reader</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="p-5 rounded-sm"
+                style={{ background: "oklch(0.97 0.003 255)", border: "1px solid var(--border)" }}
+              >
+                <dl className="space-y-3">
+                  {[
+                    { label: "Title", value: "Gas Bubble Entrainment by Plunging Laminar Liquid Jets" },
+                    { label: "Author", value: "Tong Joe Lin" },
+                    { label: "Degree", value: "Doctor of Philosophy, Chemical Engineering" },
+                    { label: "Institution", value: "Wayne State University, Detroit, Michigan" },
+                    { label: "Year", value: "1963" },
+                    { label: "Adviser", value: "Prof. H. G. Donnelly (approved 8/23/63)" },
+                    { label: "Dedication", value: "Dedicated to My Parents" },
+                  ].map((item) => (
+                    <div key={item.label} className="grid grid-cols-[7rem_1fr] gap-2">
+                      <dt className="text-xs" style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}>{item.label}</dt>
+                      <dd className="text-xs leading-relaxed" style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}>{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+
+            {/* Right: description */}
+            <div className="lg:col-span-7 reveal" style={{ transitionDelay: "0.12s" }}>
+              <h2
+                className="text-4xl md:text-5xl mb-6"
+                style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}
+              >
+                Wayne State University,
+                <br />
+                <em>1963</em>
+              </h2>
+
+              <div className="cobalt-rule mb-6">
+                <p
+                  className="text-base md:text-lg leading-relaxed italic"
+                  style={{ fontFamily: "var(--font-display)", color: "oklch(0.35 0.02 255)" }}
+                >
+                  Born in Pingtong, Taiwan in 1932, Tong Joe Lin earned his B.S. at UC Berkeley (1957), his M.S. at the University of Washington (1959), and his Ph.D. at Wayne State University (1963) — all in Chemical Engineering.
+                </p>
+              </div>
+
+              <div className="space-y-4 mb-6">
+                <p className="text-base leading-relaxed" style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}>
+                  His doctoral research investigated the entrainment of gas bubbles when a free jet of liquid plunges into a quiescent surface of the same liquid. Using twelve Newtonian liquids across a wide range of viscosities, densities, and surface tensions, he conducted high-speed photographic experiments to characterize how jet velocity, jet diameter, and liquid surface tension each govern bubble size and frequency.
+                </p>
+                <p className="text-base leading-relaxed" style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}>
+                  The research demonstrated that turbulent and laminar jets entrain gas by fundamentally different mechanisms — a finding with lasting relevance to mixing, aeration, and fluid dynamics. The dissertation was approved on August 23, 1963 and signed by five faculty members.
+                </p>
+              </div>
+
+              {/* Acknowledgment highlight */}
+              <div
+                className="mb-8 p-6 rounded-sm"
+                style={{ background: "oklch(0.97 0.003 255)", border: "1px solid var(--border)", borderLeft: "3px solid var(--color-cobalt)" }}
+              >
+                <p className="text-xs tracking-[0.12em] uppercase mb-3" style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}>Acknowledgment</p>
+                <p className="text-sm leading-relaxed italic" style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}>
+                  "Finally he wishes to acknowledge with deep appreciation the patience and understanding of his wife Mei Wan who assisted in the measurements of bubbles and the preparation of this manuscript."
+                </p>
+              </div>
+
+              {/* Thumbnail strip */}
+              <div className="flex gap-2 flex-wrap mb-6">
+                {DISSERTATION_PAGES.map((src, i) => (
+                  <button
+                    key={i}
+                    className="rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+                    style={{ width: 52, height: 68, border: "1px solid var(--border)", flexShrink: 0 }}
+                    onClick={() => openViewer("dissertation", i)}
+                    title={DISSERTATION_LABELS[i]}
+                  >
+                    <img src={src} alt={DISSERTATION_LABELS[i]} className="w-full h-full object-cover object-top" />
+                  </button>
+                ))}
+              </div>
+
+              <button
+                className="flex items-center gap-2 px-6 py-3 text-sm font-medium rounded text-white transition-all hover:opacity-90 active:scale-95"
+                style={{ background: "var(--color-cobalt)", fontFamily: "var(--font-body)" }}
+                onClick={() => openViewer("dissertation", 0)}
+              >
+                <BookOpen size={16} />
+                View the Dissertation
+              </button>
+            </div>
           </div>
         </div>
       </section>

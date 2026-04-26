@@ -26,7 +26,22 @@ function useReveal() {
 
 const timeline = [
   {
-    year: "1960s",
+    year: "1932",
+    title: "Born in Pingtong, Taiwan",
+    body: "Tong Joe Lin was born on October 19, 1932 in Pingtong, Taiwan. He attended Taichung Technical High School before emigrating to the United States to pursue higher education in chemical engineering.",
+  },
+  {
+    year: "1957–1963",
+    title: "Education: UC Berkeley, U. Washington, Wayne State",
+    body: "Earned his B.S. in Chemical Engineering from the University of California, Berkeley (1957), his M.S. from the University of Washington (1959), and his Ph.D. from Wayne State University, Detroit (1963). His doctoral dissertation, 'Gas Bubble Entrainment by Plunging Laminar Liquid Jets,' was advised by Prof. H. G. Donnelly and approved August 23, 1963.",
+  },
+  {
+    year: "1959–1963",
+    title: "Early Career: Cosmetic Laboratories & Wayne State",
+    body: "Before completing his doctorate, Dr. Lin worked as an Engineer at Cosmetic Laboratories, Inc. in Detroit (1959–1961) — where he first encountered M. G. de Navarre — and then as an Instructor in the Department of Chemical Engineering at Wayne State University (1961–1963).",
+  },
+  {
+    year: "1962–1963",
     title: "First Published Paper — de Navarre",
     body: "Contributed the chapter 'Emulsions' to Maison G. de Navarre's landmark reference series, The Chemistry and Manufacture of Cosmetics. De Navarre was the founder of the Society of Cosmetic Chemists, and being invited to write for his definitive text was a mark of exceptional scientific standing. This was Dr. Lin's first published technical paper.",
   },
