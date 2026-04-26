@@ -437,7 +437,7 @@ export default function About() {
                   className="text-sm leading-relaxed"
                   style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
                 >
-                  Beginning in 1994, Dr. Lin formed a remarkable collaboration with the research team at <strong>Pola Chemical Industries</strong>, one of Japan's most respected cosmetic science companies. Over the years that followed, Pola's scientists won <strong>nine IFSCC awards</strong> — and every single one came during the years Dr. Lin was working with them.
+                  Pola Chemical Industries, one of Japan's most respected cosmetic science companies, had been unable to win IFSCC awards despite their strong research program. In 1994, they came to Dr. Lin for help. Over the years that followed, working under his guidance, Pola's scientists won <strong>nine consecutive IFSCC awards</strong> — every single one during the years Dr. Lin was working with them.
                 </p>
                 <p
                   className="text-sm leading-relaxed"
