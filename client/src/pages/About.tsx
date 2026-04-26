@@ -423,7 +423,7 @@ export default function About() {
               className="text-xs tracking-[0.15em] uppercase mb-2"
               style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}
             >
-              1994 – Retirement · Pola Chemical Industries, Japan
+              1994 – 2023 · Pola Chemical Industries, Japan
             </p>
             <h3
               className="text-2xl md:text-3xl mb-5"
@@ -455,7 +455,7 @@ export default function About() {
                   className="text-sm leading-relaxed"
                   style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}
                 >
-                  When Dr. Lin retired, Pola did not win again. The nine consecutive victories stand as a quiet but eloquent measure of how much one scientist's generosity, expertise, and mentorship can matter.
+                  By 2023, Dr. Lin could no longer continue working and had to retire. Pola did not win again. Nearly three decades of consecutive victories stand as a quiet but eloquent measure of how much one scientist's generosity, expertise, and mentorship can matter.
                 </p>
               </div>
               <div className="flex flex-col gap-4">
