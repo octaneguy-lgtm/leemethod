@@ -266,6 +266,7 @@ export default function Papers() {
   const s2 = useReveal();
   const s3 = useReveal();
   const s4 = useReveal();
+  const s5 = useReveal();
 
   const openViewer = (type: "paper" | "dissertation" | "ipce", page = 0) => {
     setStartPage(page);
@@ -739,6 +740,119 @@ export default function Papers() {
                     <img src={src} alt={`Slide ${i + 2}`} className="w-full h-full object-cover object-top" />
                   </button>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ESSAY: VALUE & PERCEIVED VALUE ─── */}
+      <section className="py-24 md:py-32 bg-white" ref={s5}>
+        <div className="container">
+          <div className="reveal mb-4">
+            <p className="section-label mb-4">04 — Essay</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Left: metadata card */}
+            <div className="lg:col-span-4 reveal">
+              <div
+                className="p-6 rounded-sm mb-6"
+                style={{ background: "oklch(0.97 0.003 255)", border: "1px solid var(--border)", borderTop: "3px solid var(--color-cobalt)" }}
+              >
+                <p className="text-xs tracking-[0.12em] uppercase mb-4" style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}>Publication Details</p>
+                <dl className="space-y-3">
+                  {[
+                    { label: "Title", value: "The Value & Perceived Value of Cosmetics" },
+                    { label: "Original", value: "Written in Chinese, translated to English" },
+                    { label: "Published in", value: "Cosmetics & Toiletries China (C&T China)" },
+                    { label: "Column", value: "International Perspective" },
+                    { label: "Author", value: "T. Joseph Lin, Ph.D." },
+                    { label: "Address", value: "628 Enchanted Way, Pacific Palisades, CA" },
+                  ].map((item) => (
+                    <div key={item.label} className="grid grid-cols-[6rem_1fr] gap-2">
+                      <dt className="text-xs" style={{ fontFamily: "var(--font-mono)", color: "var(--color-cobalt)" }}>{item.label}</dt>
+                      <dd className="text-xs leading-relaxed" style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)" }}>{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              {/* Formula highlight */}
+              <div
+                className="p-6 rounded-sm"
+                style={{ background: "var(--color-cobalt)", color: "white" }}
+              >
+                <p className="text-xs tracking-[0.12em] uppercase mb-3" style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}>Dr. Lin's Value Formula</p>
+                <p className="text-3xl font-bold mb-3 text-center" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em" }}>V = kf + x</p>
+                <div className="space-y-1 text-xs" style={{ fontFamily: "var(--font-body)", color: "oklch(0.82 0.05 255)" }}>
+                  <p><strong className="text-white">V</strong> — Perceived value</p>
+                  <p><strong className="text-white">f</strong> — Actual functional performance</p>
+                  <p><strong className="text-white">k</strong> — Advertising amplification factor</p>
+                  <p><strong className="text-white">x</strong> — Brand / image factor</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: full essay text */}
+            <div className="lg:col-span-8 reveal" style={{ transitionDelay: "0.12s" }}>
+              <h2
+                className="text-4xl md:text-5xl mb-6"
+                style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}
+              >
+                The Value &amp; Perceived Value
+                <br />
+                <em>of Cosmetics</em>
+              </h2>
+
+              <div className="cobalt-rule mb-8">
+                <p className="text-base italic leading-relaxed" style={{ fontFamily: "var(--font-display)", color: "oklch(0.35 0.02 255)" }}>
+                  A column written in Chinese for Cosmetics &amp; Toiletries China, later translated to English — one of Dr. Lin's reflections on the industry he shaped over six decades.
+                </p>
+              </div>
+
+              <div
+                className="prose max-w-none space-y-5"
+                style={{ fontFamily: "var(--font-body)", color: "oklch(0.35 0.02 255)", fontSize: "0.9rem", lineHeight: "1.8" }}
+              >
+                <p>
+                  I have three children, all sons, and four grandchildren — no granddaughters. My Chinese friends say I am "very lucky," but my American friends say, "Unfortunately you have no granddaughter." At our annual Christmas family reunion, we buy gifts for the grandchildren. When they were small, simple gifts — cute clothes, toys — made them very happy. Now it is not so easy, because they have grown up and have their own views on clothes and toys. We must consult with their parents to choose the right gift. As they have grown, their sense of the value of things has also changed.
+                </p>
+                <p>
+                  Cosmetics "worth" is very important because as the types of cosmetics multiply and competition intensifies, consumers have many choices. In the U.S., a bottle of face cream may sell for $10, $50, or even $100. To understand why a consumer buys a particular brand, we must consider "perceived value." Because she has not yet used the product, she cannot know its effect or quality — she can only judge by worth. If the perceived value exceeds the price, she will consider buying. Cosmetics companies understand this well, and invest heavily in packaging and advertising to increase a product's perceived worth.
+                </p>
+
+                <h4 className="text-base font-semibold mt-6" style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}>A Formula for Worth</h4>
+                <p>
+                  Although perceived value may be affected by many factors, two are primary: first, <em>functional</em> factors — the product's effect, quality, and safety; second, factors beyond function — brand image, company reputation, and cultural cachet. If we use <strong>V</strong> for value, <strong>F</strong> for the first factor, and <strong>x</strong> for the second, we can write: <strong>V = F + x</strong>. Since the consumer has not yet used the product, F represents a subjective impression. Using <strong>f</strong> for actual post-use performance and <strong>k</strong> as an advertising scale factor, the formula becomes: <strong>V = kf + x</strong>.
+                </p>
+                <p>
+                  If k = 1, the consumer's pre-use impression matches actual performance. If k &gt; 1, advertising has made the product seem more effective than it is. Experienced manufacturers know the risk of exaggerating k too far — if the gap between promise and reality is too wide, consumers are disappointed and do not return.
+                </p>
+
+                <h4 className="text-base font-semibold mt-6" style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}>Image, Fashion, and the X Factor</h4>
+                <p>
+                  In the early 20th century, many leading cosmetics companies built their value on the x factor — high-end image, fashion, and luxury. Christian Dior and Coco Chanel were famous fashion designers first; their perfumes succeeded not on functional claims but on the power of an upscale image. I worked in Hollywood in the 1960s, where Mr. Max Factor — makeup stylist to the movie stars — used the image of Hollywood to build one of the world's great color cosmetics brands.
+                </p>
+
+                <h4 className="text-base font-semibold mt-6" style={{ fontFamily: "var(--font-display)", color: "oklch(0.13 0.01 255)" }}>The Shift Toward Function</h4>
+                <p>
+                  By the late 1960s, American consumers began questioning the safety of cosmetic ingredients, and the consumer movement grew through the 1970s. When I started my consultancy in California in 1974, I observed small companies succeeding by selling cosmetics with all-natural ingredients — emphasizing gentleness and safety over image. Large companies followed in the 1980s with herbal extracts and natural raw materials. After 2000, the organic food movement brought organic cosmetics into the mainstream.
+                </p>
+                <p>
+                  This shift — from image-driven x-value to function-driven f-value — does not mean x is unimportant. But its content has evolved. Today, cosmetics companies also emphasize their contribution to the environment and social causes: breast cancer research, sustainability, and community investment. The x factor has become less about luxury and more about shared values.
+                </p>
+
+                <div
+                  className="mt-8 p-5 rounded-sm text-xs"
+                  style={{ background: "oklch(0.97 0.003 255)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", color: "oklch(0.55 0.02 255)" }}
+                >
+                  <p className="mb-1"><strong>References</strong></p>
+                  <p>(1) T. J. Lin, C&amp;T China, p.6, No.3, 2005</p>
+                  <p>(2) T. J. Lin, C&amp;T China, p.6, No.3, 2007</p>
+                  <p>(3) T. J. Lin, C&amp;T China, p.6, No.2, 2008</p>
+                  <p>(4) www.elcompanies.com</p>
+                </div>
               </div>
             </div>
           </div>
