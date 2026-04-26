@@ -42,6 +42,34 @@ const DISSERTATION_LABELS = [
   "Acknowledgment",
 ];
 
+// IPCE 2018 Presentation slides
+const IPCE_SLIDES = [
+  "/manus-storage/slide-01_7a44ac0f.jpg",
+  "/manus-storage/slide-02_60b0726d.jpg",
+  "/manus-storage/slide-03_861a0e1a.jpg",
+  "/manus-storage/slide-04_f560d39e.jpg",
+  "/manus-storage/slide-05_58529e69.jpg",
+  "/manus-storage/slide-06_e858b921.jpg",
+  "/manus-storage/slide-07_7e42cacb.jpg",
+  "/manus-storage/slide-08_8d48b0fc.jpg",
+  "/manus-storage/slide-09_41d61311.jpg",
+  "/manus-storage/slide-10_46213faf.jpg",
+  "/manus-storage/slide-11_6ddb13f8.jpg",
+  "/manus-storage/slide-12_2ce97b54.jpg",
+  "/manus-storage/slide-13_26360fe0.jpg",
+  "/manus-storage/slide-14_04d84475.jpg",
+  "/manus-storage/slide-15_df74c584.jpg",
+  "/manus-storage/slide-16_139a0c32.jpg",
+  "/manus-storage/slide-17_73de6d02.jpg",
+  "/manus-storage/slide-18_e62206fa.jpg",
+  "/manus-storage/slide-19_ea85547c.jpg",
+  "/manus-storage/slide-20_1e212c9a.jpg",
+  "/manus-storage/slide-21_a4424d71.jpg",
+  "/manus-storage/slide-22_77dda199.jpg",
+  "/manus-storage/slide-23_3930bf6c.jpg",
+  "/manus-storage/slide-24_7a5af53a.jpg",
+];
+
 // All 40 uploaded pages in order
 const PAGES = [
   "/manus-storage/IMG_1165_388eaeeb.jpeg",
@@ -232,13 +260,14 @@ function PaperViewer({ pages, title, onClose }: { pages: string[]; title: string
 }
 
 export default function Papers() {
-  const [viewerOpen, setViewerOpen] = useState<"paper" | "dissertation" | null>(null);
+  const [viewerOpen, setViewerOpen] = useState<"paper" | "dissertation" | "ipce" | null>(null);
   const [startPage, setStartPage] = useState(0);
   const s1 = useReveal();
   const s2 = useReveal();
   const s3 = useReveal();
+  const s4 = useReveal();
 
-  const openViewer = (type: "paper" | "dissertation", page = 0) => {
+  const openViewer = (type: "paper" | "dissertation" | "ipce", page = 0) => {
     setStartPage(page);
     setViewerOpen(type);
   };
@@ -256,6 +285,13 @@ export default function Papers() {
         <PaperViewer
           pages={DISSERTATION_PAGES}
           title="Gas Bubble Entrainment by Plunging Laminar Liquid Jets — Ph.D. Dissertation"
+          onClose={() => setViewerOpen(null)}
+        />
+      )}
+      {viewerOpen === "ipce" && (
+        <PaperViewer
+          pages={IPCE_SLIDES}
+          title="Low Energy Emulsification: Less Is More — IPCE 2018 Presentation"
           onClose={() => setViewerOpen(null)}
         />
       )}
@@ -592,6 +628,118 @@ export default function Papers() {
                 <BookOpen size={16} />
                 View the Dissertation
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── IPCE 2018 PRESENTATION ─── */}
+      <section
+        className="py-24 md:py-32"
+        style={{ background: "oklch(0.13 0.05 255)" }}
+        ref={s4}
+      >
+        <div className="container">
+          <div className="reveal mb-4">
+            <p className="text-xs tracking-[0.18em] uppercase mb-4" style={{ fontFamily: "var(--font-mono)", color: "oklch(0.72 0.12 75)" }}>03 — Conference Presentation</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Left: description */}
+            <div className="lg:col-span-7 reveal">
+              <h2
+                className="text-4xl md:text-5xl mb-6 text-white"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                IPCE 2018
+                <br />
+                <em style={{ color: "oklch(0.72 0.12 75)" }}>Less Is More</em>
+              </h2>
+
+              <div className="mb-6" style={{ borderLeft: "3px solid oklch(0.72 0.12 75)", paddingLeft: "1.25rem" }}>
+                <p
+                  className="text-base md:text-lg leading-relaxed italic"
+                  style={{ fontFamily: "var(--font-display)", color: "oklch(0.85 0.01 255)" }}
+                >
+                  One of Dr. Lin's last public presentations on Low Energy Emulsification, delivered at the International Personal Care Conference in 2018.
+                </p>
+              </div>
+
+              <div className="space-y-4 mb-6">
+                <p className="text-sm leading-relaxed" style={{ fontFamily: "var(--font-body)", color: "oklch(0.72 0.05 255)" }}>
+                  In this 24-slide presentation, Dr. Lin frames LEE within the urgent context of global warming and creative conservation, introducing his signature <strong className="text-white">&ldquo;&lt;&nbsp;=&nbsp;&gt;&rdquo;</strong> symbol — shorthand for the Less Is More principle. Drawing on Confucius and Lao-tse, he argues that finding the <strong className="text-white">Z-Point</strong> (the optimal output achieved with minimum input) is the key to both better products and a more sustainable industry.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ fontFamily: "var(--font-body)", color: "oklch(0.72 0.05 255)" }}>
+                  Two real-world case studies anchor the talk: a shear-sensitive emulsion scale-up problem he solved at Max Factor, and a 2,000-gallon sunscreen stability failure he diagnosed as a consultant using Phase Inversion Temperature (PIT) theory. Both demonstrate that Process Variables — not just formulation — are the key to quality.
+                </p>
+              </div>
+
+              {/* Key quotes */}
+              <div className="space-y-3 mb-8">
+                {[
+                  { quote: "More energy = better product — NOT TRUE.", sub: "Myth #1, busted" },
+                  { quote: "More surfactant = better stability — NOT TRUE.", sub: "Myth #2, busted" },
+                  { quote: "\u5c11\u5373\u5f97\u3001\u591a\u5373\u60d1 — Less is a gain, more is confusion.", sub: "Lao-tse, cited by Dr. Lin" },
+                ].map((item) => (
+                  <div
+                    key={item.quote}
+                    className="p-4 rounded-sm"
+                    style={{ background: "oklch(0.20 0.05 255)", border: "1px solid oklch(1 0 0 / 0.1)" }}
+                  >
+                    <p className="text-sm font-medium text-white mb-1" style={{ fontFamily: "var(--font-body)" }}>{item.quote}</p>
+                    <p className="text-xs" style={{ fontFamily: "var(--font-mono)", color: "oklch(0.55 0.05 255)" }}>{item.sub}</p>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className="flex items-center gap-2 px-6 py-3 text-sm font-medium rounded transition-all hover:opacity-90 active:scale-95"
+                style={{ background: "oklch(0.72 0.12 75)", color: "oklch(0.13 0.05 255)", fontFamily: "var(--font-body)" }}
+                onClick={() => openViewer("ipce", 0)}
+              >
+                <BookOpen size={16} />
+                View All 24 Slides
+              </button>
+            </div>
+
+            {/* Right: slide thumbnails */}
+            <div className="lg:col-span-5 reveal" style={{ transitionDelay: "0.12s" }}>
+              {/* Featured first slide */}
+              <div
+                className="relative rounded-sm overflow-hidden shadow-2xl mb-4 cursor-pointer group"
+                style={{ border: "1px solid oklch(1 0 0 / 0.15)" }}
+                onClick={() => openViewer("ipce", 0)}
+              >
+                <img
+                  src={IPCE_SLIDES[0]}
+                  alt="IPCE 2018 title slide"
+                  className="w-full object-cover"
+                />
+                <div
+                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ background: "oklch(0.13 0.05 255 / 0.7)" }}
+                >
+                  <div className="flex flex-col items-center gap-2" style={{ color: "oklch(0.72 0.12 75)" }}>
+                    <BookOpen size={32} />
+                    <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>Open Presentation</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Thumbnail grid */}
+              <div className="grid grid-cols-6 gap-1">
+                {IPCE_SLIDES.slice(1).map((src, i) => (
+                  <button
+                    key={i}
+                    className="rounded-sm overflow-hidden transition-all hover:opacity-80 hover:-translate-y-0.5"
+                    style={{ border: "1px solid oklch(1 0 0 / 0.1)", aspectRatio: "4/3" }}
+                    onClick={() => openViewer("ipce", i + 1)}
+                    title={`Slide ${i + 2}`}
+                  >
+                    <img src={src} alt={`Slide ${i + 2}`} className="w-full h-full object-cover object-top" />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
